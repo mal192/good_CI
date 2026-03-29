@@ -58,7 +58,7 @@ for (int cycleI = 0; cycleI < countStrS; cycleI++)
 	}
 	
 }
-/// Find simbol
+/// searching for a character in a string
 char *reusltFind;
 
 char findChar = '0';
@@ -85,7 +85,7 @@ else
 	printf("N0t char  \n");
 }
 
-///find string
+///search for a line within a line
 char strNewFind2[99] = "hello Fabrika";
 char *pointStrNewFind2 = strNewFind2;
 reusltFind = strstr(pointStrNewFind2 , pointFindStr);
@@ -98,6 +98,7 @@ else
 	printf("N0t string to string  \n");
 }
 
+///The search contains one of the characters in the string 
 char findStr2[10] = "oP0";
 char *pointFindStr2 = findStr2;
 reusltFind = strpbrk(pointStrNewFind2 , pointFindStr2);
