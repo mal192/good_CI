@@ -59,15 +59,55 @@ for (int cycleI = 0; cycleI < countStrS; cycleI++)
 	
 }
 /// Find simbol
+char *reusltFind;
+
 char findChar = '0';
 char strNewFind[60] = "oOoOo0oOoOooO0oOoOOo0"; //length 5; right 7
 printf("ansii %c = %d\n", findChar, (int)findChar);
 char *pointstrNewFind = strNewFind;
-size_t resultStrchr =  strchr(pointstrNewFind, findChar) - pointstrNewFind;
-printf("index length %c  = %lld\n",findChar, resultStrchr);
-size_t resultStrRchr = strrchr(pointstrNewFind, findChar) - pointstrNewFind;
-printf("index right %c  = %lld\n",findChar, resultStrRchr);
-//time 9:48
+reusltFind =  strchr(pointstrNewFind, findChar);
+if (reusltFind != NULL) {
+	size_t resultStrchr = reusltFind - pointstrNewFind;
+	printf("index length %c  = %lld\n",findChar, resultStrchr);
+} 
+else 
+{
+	printf("N0t char  \n");
+}
 
+reusltFind =  strrchr(pointstrNewFind, findChar);
+if (reusltFind != NULL) {
+	size_t resultStrRchr = strrchr(pointstrNewFind, findChar) - pointstrNewFind;
+	printf("index right %c  = %lld\n",findChar, resultStrRchr);
+}
+else 
+{
+	printf("N0t char  \n");
+}
+
+///find string
+char strNewFind2[99] = "hello Fabrika";
+char *pointStrNewFind2 = strNewFind2;
+reusltFind = strstr(pointStrNewFind2 , pointFindStr);
+if (reusltFind != NULL) {
+	size_t resultFindStr = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr);
+}
+else 
+{
+	printf("N0t string to string  \n");
+}
+
+char findStr2[10] = "oP0";
+char *pointFindStr2 = findStr2;
+reusltFind = strpbrk(pointStrNewFind2 , pointFindStr2);
+if (reusltFind != NULL) {
+	size_t resultFindStr2 = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr2);
+}
+else
+{
+	printf("N0t string to string 2  \n");
+}
 	return 0;
 }
