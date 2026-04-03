@@ -58,16 +58,84 @@ for (int cycleI = 0; cycleI < countStrS; cycleI++)
 	}
 	
 }
-/// Find simbol
+/// searching for a character in a string
+//поиск символа в строке
+char *reusltFind;
+
 char findChar = '0';
 char strNewFind[60] = "oOoOo0oOoOooO0oOoOOo0"; //length 5; right 7
 printf("ansii %c = %d\n", findChar, (int)findChar);
 char *pointstrNewFind = strNewFind;
-size_t resultStrchr =  strchr(pointstrNewFind, findChar) - pointstrNewFind;
-printf("index length %c  = %lld\n",findChar, resultStrchr);
-size_t resultStrRchr = strrchr(pointstrNewFind, findChar) - pointstrNewFind;
-printf("index right %c  = %lld\n",findChar, resultStrRchr);
-//time 9:48
+reusltFind =  strchr(pointstrNewFind, findChar); //слева
+if (reusltFind != NULL) {
+	size_t resultStrchr = reusltFind - pointstrNewFind;
+	printf("index length %c  = %lld\n",findChar, resultStrchr);
+} 
+else 
+{
+	printf("N0t char  \n");
+}
+
+reusltFind =  strrchr(pointstrNewFind, findChar); ///справо
+if (reusltFind != NULL) {
+	size_t resultStrRchr = strrchr(pointstrNewFind, findChar) - pointstrNewFind;
+	printf("index right %c  = %lld\n",findChar, resultStrRchr);
+}
+else 
+{
+	printf("N0t char  \n");
+}
+
+///search for a line within a line
+//поиск строки в строке
+char strNewFind2[99] = "hello Fabrika";
+char *pointStrNewFind2 = strNewFind2;
+reusltFind = strstr(pointStrNewFind2 , pointFindStr);
+if (reusltFind != NULL) {
+	size_t resultFindStr = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr);
+}
+else 
+{
+	printf("N0t string to string  \n");
+}
+
+///The search contains one of the characters in the string 
+///Проверка: содержится ли хотя бы один из символов строки в строке
+char findStr2[10] = "oP0";
+char *pointFindStr2 = findStr2;
+reusltFind = strpbrk(pointStrNewFind2 , pointFindStr2);
+if (reusltFind != NULL) {
+	size_t resultFindStr2 = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr2);
+}
+else
+{
+	printf("N0t string to string 2  \n");
+}
+
+//************
+///	csv - 
+printf("\n");
+char str[99] = "n@me;group;123;567;213";
+char symbalDel = ';';
+
+char *pointStr = str;
+char *newPointStr = pointStr;
+
+while (pointStr != NULL){
+	newPointStr = strchr(pointStr, symbalDel);
+	if (newPointStr != NULL) 
+		{
+			printf("%s\n", pointStr);
+			pointStr = newPointStr + 1;  
+		}
+		else 
+		{
+			printf("%s\n", pointStr);
+			pointStr = newPointStr;
+		}
+}
 
 	return 0;
 }
