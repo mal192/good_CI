@@ -75,6 +75,7 @@ else
 {
 	printf("N0t char  \n");
 }
+<<<<<<< HEAD
 
 reusltFind =  strrchr(pointstrNewFind, findChar); ///справо
 if (reusltFind != NULL) {
@@ -136,6 +137,45 @@ while (pointStr != NULL){
 			pointStr = newPointStr;
 		}
 }
+=======
+>>>>>>> fe37bf96747258608f900c8f0c547dedd03fda59
 
+reusltFind =  strrchr(pointstrNewFind, findChar); ///справо
+if (reusltFind != NULL) {
+	size_t resultStrRchr = strrchr(pointstrNewFind, findChar) - pointstrNewFind;
+	printf("index right %c  = %lld\n",findChar, resultStrRchr);
+}
+else 
+{
+	printf("N0t char  \n");
+}
+
+///search for a line within a line
+//поиск строки в строке
+char strNewFind2[99] = "hello Fabrika";
+char *pointStrNewFind2 = strNewFind2;
+reusltFind = strstr(pointStrNewFind2 , pointFindStr);
+if (reusltFind != NULL) {
+	size_t resultFindStr = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr);
+}
+else 
+{
+	printf("N0t string to string  \n");
+}
+
+///The search contains one of the characters in the string 
+///Проверка: содержится ли хотя бы один из символов строки в строке
+char findStr2[10] = "oP0";
+char *pointFindStr2 = findStr2;
+reusltFind = strpbrk(pointStrNewFind2 , pointFindStr2);
+if (reusltFind != NULL) {
+	size_t resultFindStr2 = reusltFind - pointStrNewFind2;
+	printf("resul find string %lld\n", resultFindStr2);
+}
+else
+{
+	printf("N0t string to string 2  \n");
+}
 	return 0;
 }
